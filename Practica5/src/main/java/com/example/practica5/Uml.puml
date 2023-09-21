@@ -1,0 +1,163 @@
+    @startuml
+'https://plantuml.com/sequence-diagram
+skinparam linetype ortho
+top to bottom direction
+class Cliente{
+    id
+    nombre
+    apellidos
+    noCuenta
+    fechaNac
+    saldo
+    direccion
+    setId()
+    getId()
+    setNombre()
+    getNombre()
+    setApellidos()
+    getApellidos()
+    setNoCuenta()
+    getNoCuenta()
+    setFechaNac()
+    getFechaNac()
+    setSaldo()
+    getSaldo()
+    setDireccion()
+    getDireccion()
+}
+
+class HelloApplication{
+    start()
+    main()
+}
+
+class Escena1{
+    menu()
+    contenido()
+    showAlert()
+}
+
+class Escena2{
+    GridPane root
+    registroCliente()
+    showAlert()
+}
+
+class Registros{
+    listaC
+    setListaC()
+    getListaC()
+}
+
+class Escena3{
+    GridPane root
+    Escena3()
+
+}
+
+class Modificar{
+    GridPane root
+    modificar()
+    contenido()
+    showAlert()
+}
+
+class Modificacion{
+    GridPane root
+    modificacion()
+    contenido()
+    showAlert()
+}
+class AlmacenarID{
+    id
+    getId()
+    setId()
+}
+
+class ConsultaSaldo{
+    GridPane root
+    consultaSaldo()
+    contenido()
+    showAlert()
+}
+class Depositar{
+    GridPane root
+    depositar()
+    contenido()
+    showAlert()
+}
+
+class Retirar{
+    GridPane root
+    retirar()
+    contenido()
+    showAlert()
+}
+class Transferencia{
+    transferir()
+    contenido()
+    showAlert()
+}
+class Styles{
+    setStyleBoton()
+    setStyleLabel()
+    setStyleLabelGrande()
+}
+interface HelloController{
+    Parent getContent()
+}
+HelloController -->ConsultaSaldo
+HelloController --> Depositar
+HelloController --> Escena1
+HelloController --> Escena2
+HelloController --> Escena3
+HelloController --> Modificar
+HelloController --> Modificacion
+HelloController --> Retirar
+HelloController --> Transferencia
+Styles -->ConsultaSaldo
+Styles --> Depositar
+Styles --> Escena1
+Styles --> Escena2
+Styles --> Escena3
+Styles --> Modificar
+Styles --> Modificacion
+Styles --> Retirar
+Styles --> Transferencia
+Transferencia --> Escena1
+Escena1 --> Transferencia
+Registros -->Transferencia
+Cliente -->Transferencia
+Registros -->Retirar
+Cliente -->Retirar
+Retirar --> Escena1
+Escena1 --> Retirar
+Depositar -->Escena1
+Escena1 --> Depositar
+Registros -->Depositar
+Cliente -->Depositar
+ConsultaSaldo -->Escena1
+Escena1 --> ConsultaSaldo
+Registros --> ConsultaSaldo
+AlmacenarID -->Modificar
+AlmacenarID -->Modificacion
+Cliente-->Modificacion
+Registros-->Modificacion
+Escena1-->Modificacion
+Modificacion --> Modificar
+Registros --> Modificar
+Modificar -->Escena1
+Escena1 -->Modificar
+Escena3 --> Escena2
+Escena1-->Escena3
+Registros --> Escena3
+Registros --> Escena2
+Cliente --> Escena2
+Escena1 --> Escena2
+Escena2 --> Escena1
+
+
+Escena1 --> HelloApplication
+
+
+@enduml
